@@ -21,7 +21,16 @@ public class Main
      */
     public static void main(String[] args)
     {
-       Stack stack;
+      ST<Date, String> st = new ST<String, Integer>();
+       
+      st.put("hola", 1);
+      st.put("hola", 12);
+      st.put("hola", 23);
+      st.put("hola1", 13);
+      st.put("hola1", 14);
+      
+        System.out.println(st.get("hola"));
     }
-    
 }
+    
+

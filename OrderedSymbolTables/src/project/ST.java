@@ -77,7 +77,27 @@ public class ST<Key extends Comparable<Key>, Value> implements STInterface
     @Override
     public void delete(Comparable key)
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Key key1 = (Key) key;
+
+        if (key == null) {
+            throw new NullPointerException("argument to delete() is null");
+        }
+        first = delete(first, key1);
+    }
+
+    // delete key in linked list beginning at Node x
+    // warning: function call stack too large if table is large
+    private Node delete(Node x, Key key)
+    {
+        if (x == null) {
+            return null;
+        }
+        if (key.equals(x.key)) {
+            n--;
+            return x.next;
+        }
+        x.next = delete(x.next, key);
+        return x;
     }
 
     @Override
